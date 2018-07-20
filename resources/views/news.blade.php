@@ -49,14 +49,9 @@
 
                     <div class="section-content">
                             <div class="row">
-@foreach ($data as $display)
-<div class="box">
-    <h1>{{ $display['title'] }}</h1>
-</div>
-@endforeach                                
-                                @for ($i=0;$i<=sizeof($data);$i++)
-                                    {{$data[$i]->title}}
-                                @endfor
+                                @foreach($data as $d)
+                                    {{$d->title}} 
+                                @endforeach
                                 <div class="col-md-3 col-sm-6">
                                     <div class="article">
                                         <div class="cor-author-name">BBC</div>
