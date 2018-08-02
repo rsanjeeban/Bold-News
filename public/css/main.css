@@ -57,6 +57,27 @@ h4{
 .subBut:focus{
 	outline: none;
 }
+.livesearch{
+	position: absolute;
+	width:59.7%;
+	margin-top: 3px;
+}
+.livesearch ul{
+	list-style-type: none;
+    margin: 0;
+	padding: 0;
+}
+.livesearch li{
+	font-size: 16px;
+	background-color: white;
+	color:#0B2239;
+	padding:10px 20px;
+}
+.livesearch li:hover{
+	background-color: #e3e9ed;
+	
+	cursor: pointer;
+}
 .suggest-button,.suggest-button:focus{
 	border:none;
 	background-color: rgba(255, 255, 255, 0.69);
@@ -213,14 +234,14 @@ h4{
     cursor: pointer;
 }
 /*More News Button*/
-.more-news img{
+/* .more-news img{
 	height: 50px;
 	padding: 2px;
 	font-size: 12pt;
 	float: right;
 	background-color: rgba(255, 255, 255, 0.88);
 	cursor: pointer;
-}
+} */
 .more-news button,.more-news button:focus{
     /*background-color: #383d41;*/
     background-color: red;

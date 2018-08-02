@@ -21,9 +21,17 @@
                 <div class="search-bar">
                     <h1>Hello! and Welcome to our site</h1>
                     <form action="" method="" style="background-color:white;border-radius: 3px;" autocomplete="off">
-                        <input type="text" name="searchbar" placeholder="Search News" class="p-4">
+                        <input type="text" name="searchbar" placeholder="Search News" class="p-4" id="search-button" onkeyup="search_live()" onblur="leave_search_live()">
                         <button  class="fa fa-search nostyle subBut"><input type="submit" class="nostyle" value=""></button>
                     </form>
+                    
+                    <div class="livesearch">
+                        <ul style="display:contents" id="live-results" hidden>
+                            <div id="live-results-div">
+
+                            </div>
+                        </ul>
+                    </div>
                     <div class="p-1"></div>
                 <label style="font-family: 'Oswald', sans-serif;font-size: 11pt;color: #b1bcd5;">Search Suggestion :</label>
                 <button class="suggest-button">BBC</button>
@@ -59,7 +67,7 @@
                                     </div>
                                     
                                 </div>
-                                <div class="col-md-6 col-sm-6">
+                                <d  iv class="col-md-6 col-sm-6">
                                     <div class="article-2">
                                         <div class="article-2-single">
                                             <div class="row">
@@ -158,11 +166,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--  Ajax Loading BBC Newses -->
+                            <div class="more-news" id="more-newses-row1"></div>
                     </div>
                 </div>
             </div>
             <div class="more-news" style="text-align: center;">
-                <button class="more-news-button">More News...</button>
+                <button class="more-news-button" id="getRequest">More News...</button>
             </div>
         </div>
     </div>
@@ -216,11 +226,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--  Ajax Loading BBC Newses -->
+                            <div class="more-news" id="more-newses-row2"></div>
                     </div>
                 </div>
             </div>
             <div class="more-news" style="text-align: center;">
-                <button class="more-news-button">More News...</button>
+                <button class="more-news-button" id="getRequest1">More News...</button>
             </div>
         </div>
     </div>
@@ -232,7 +244,7 @@
                         <b><h3>CNN NEWS</h3><hr></b>
                     </div>
                     <div class="section-content">
-                            <div class="row">
+                            <div class="row" id="row">
                                 <div class="col-md-3 col-sm-6">
                                     <div class="article">
                                         <div class="cor-author-name">BBC</div>
@@ -295,16 +307,39 @@
             <br><br><br>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script>
-        $.ajax({
-            url:"https://jsonplaceholder.typicode.com/posts",
-            dataType:'jsonp',
-            success:function(results){
-                var Data=results;
-                console.log(Data[1].title);
+    <script src="/js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            // $('#getRequest').click(function(){
+            $("#getRequest,#getRequest1").click(function(){
+                $.get('getRequest',function(data){
+                    $('#more-newses-row1').hide();                    
+                    $('#more-newses-row1').append(data);
+                    $('#more-newses-row1').show(200);       
+                })  
+            });
+            // switch(){
+
+            // }j
+        });
+        function search_live(){
+            var searchValue=document.getElementById('search-button').value;
+            // alert(searchValue);
+            if(searchValue.length>0){
+                document.getElementById('live-results').removeAttribute("hidden");
+                //Ajax Search
+                $.get('search-live/'+searchValue,function(data){
+                    $('#live-results-div').html("<li>"+data+"</li>");
+                })  
             }
-        })
+            else{
+                document.getElementById('live-results').setAttribute("hidden",true);
+            }
+        }
+        function leave_search_live(){
+            document.getElementById('live-results').setAttribute("hidden",true);
+        }
+        
     </script>
 </body>
 

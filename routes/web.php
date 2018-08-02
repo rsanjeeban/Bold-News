@@ -27,4 +27,18 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/news/{channelname}', 'GetData@GetFromChannel');
+Route::get('/news/{channelname}', 'GetData@selectChannel');
+
+Route::get('/getRequest',function(){
+  if(Request::ajax()){
+      
+    //   echo "<h1>Hi Welcome. Ajax Successfully</h1>";
+      return view('more-news');
+  }});
+
+Route::get('/search-live/{Value}','GetData@SearchString');
+// Route::get('/search-live/{Value}',function($Value){
+//     if(Request::ajax()){
+//         //   echo "<h1>Hi Welcome. Ajax Successfully</h1>";
+//         return $Value;
+// }});

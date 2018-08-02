@@ -33,9 +33,15 @@ class GetData extends Controller
 	}
 
 	public function GetDataFromChannel($Api){
+		
 		$client=new Client();
 		$res = $client->request('GET', $Api);
 		$data=json_decode($res->getBody());
 		return $data;
+	}
+	public function SearchString(){
+		if(Request::ajax()){
+		return $Value;
+		}
 	}
 }
