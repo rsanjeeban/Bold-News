@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use Request;
 // use App\Product;
 use App\Http\Requests;
 use GuzzleHttp\Client;
@@ -39,9 +40,9 @@ class GetData extends Controller
 		$data=json_decode($res->getBody());
 		return $data;
 	}
-	public function SearchString(){
+	public function SearchString($Value){
 		if(Request::ajax()){
-		return $Value;
-		}
+			return $Value;
+		 }
 	}
 }
