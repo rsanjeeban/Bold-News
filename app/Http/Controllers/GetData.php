@@ -42,7 +42,16 @@ class GetData extends Controller
 	}
 	public function SearchString($Value){
 		if(Request::ajax()){
-			return $Value;
+			$ResultArr;
+			// $Api="https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=e7d6456c6e2c4067bacbfff40b6aafe1";
+			// $data=$this->GetDataFromChannel($Api);
+			// for($i=0;$i<=10;$i++){
+			// 	if(strpos($data->articles[$i]->title,$Value)!==false){
+			// 		$ResultArr=$data->articles[$i]->title;
+			// 	}
+			// }
+			// $dat=$data->articles[0]->title;
+			return "Hi Welcome to Live Search";
 		 }
 	}
 }

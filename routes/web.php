@@ -15,17 +15,17 @@ Route::get('/', function () {
     return view('home')->with("name","Sanjee");
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+// Route::get('/login', function () {
+//     return view('login');
+// });
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/register', function () {
-    return view('register');
-});
+// Route::get('/register', function () {
+//     return view('register');
+// });
 
 Route::get('/news/{channelname}', 'GetData@selectChannel');
 
@@ -42,3 +42,6 @@ Route::get('/search-live/{Value}','GetData@SearchString');
 //         //   echo "<h1>Hi Welcome. Ajax Successfully</h1>";
 //         return $Value;
 // }});
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

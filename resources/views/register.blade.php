@@ -4,6 +4,8 @@
     <title>Login</title>
     <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="/css/main.css" type="text/css">
+    <!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet"/> -->
+    
 </head>
 <body>
 <div class="pageBackground">
@@ -22,7 +24,7 @@
                         <input type="text" placeholder="User Name" class="w-75"><br><br>
                         <input type="text" placeholder="someone@example.com" class="w-75"><br><br>
                         <input type="password" placeholder="Password" class="w-75"><br><br>
-                        <input type="checkbox">Show Password <br>
+                        <input type="checkbox">Show Password <br>   
                         <input type="submit" value="Register Now" class="btn btn-primary w-75 loginbutton"><br><br>
                         Already have an account? <a href="/login" style="color:#c0392b;">Sign in now</a>
                     </form>

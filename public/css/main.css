@@ -139,7 +139,7 @@ h4{
 	font-family: 'Oswald', sans-serif;		
 }
 .menu-icon{
-	display: inline-block;
+	/* display: inline-block; */
 	float: right;
 	margin-right: 2px;
 	display: none;
@@ -166,7 +166,7 @@ h4{
 }
 .article-1-img img{
 	width:99%;
-	height: 350px
+	height: 350px;
 	cursor: pointer;
 	transition: 0.5s;
 }
@@ -257,7 +257,7 @@ h4{
     cursor: pointer;
     /*display: none;*/
     visibility: hidden;;
-    transition-duration: : 2s;
+    transition-duration:2s;
 }
 .newspanel-one:hover .more-news-button{
 	/*display: inline-block;*/
