@@ -18,15 +18,45 @@
             </div>
             <div class="col-md-4">
                 <div class="loginform text-center">
-                    <form action="" method="post">
+                    <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                         <img src="/images/logo.png" style="width:200px;"><br><br>
+                        
                         <h2 style="font-size:20pt;">REGISTRATION</h2><br>
-                        <input type="text" placeholder="User Name" class="w-75"><br><br>
-                        <input type="text" placeholder="someone@example.com" class="w-75"><br><br>
-                        <input type="password" placeholder="Password" class="w-75"><br><br>
+                        s
+                        <input id="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="User Name" required autofocus>
+
+                            @if ($errors->has('name'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('name') }}</strong>
+                                </span>
+                            @endif
+                            <br><br>
+                        <input id="email" type="email" class="w-75 {{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="someone@example.com" required>
+
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                            <br><br>
+                        
+                        <input id="password" type="password" class="w-75 {{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                                <br><br>
+
+                        <input id="password-confirm" type="password" class="w-75" name="password_confirmation" required placeholder="Retype Password"><br>
                         <input type="checkbox">Show Password <br>   
-                        <input type="submit" value="Register Now" class="btn btn-primary w-75 loginbutton"><br><br>
+                        <!-- <input type="submit" value="Register Now" class="btn btn-primary w-75 loginbutton"><br><br> -->
+                        <button type="submit" class="btn btn-primary w-75 loginbutton">
+                            {{ __('Register') }}
+                        </button><br>
                         Already have an account? <a href="/login" style="color:#c0392b;">Sign in now</a>
+                        
                     </form>
                 </div>
                 

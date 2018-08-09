@@ -276,7 +276,7 @@ h4{
 }
 .loginform{
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 75px;
 	border-radius: 6px;
 	height: 250px;
 }
@@ -287,7 +287,7 @@ h4{
 	/*background-image: url("/images/news-back.jpg");*/
 	background-size: cover;
 }
-.loginform input[type="text"],.loginform input[type="password"]{
+.loginform input[type="text"],.loginform input[type="password"],.loginform input[type="email"]{
 	padding: 4px 15px;
 	height: 50px;
 	font-size: 15pt;
