@@ -43,9 +43,8 @@
             <div class="row ">
                 <div class="col-md-12"><br>
                     <div class="section-title">
-                        <b><h3>WELCOME TO BBC NEWS</h3></b><hr>
+                        <b><h3>WELCOME TO {{$dat[0]->source->name}}</h3></b><hr>
                     </div>
-                    
 
                     <div class="section-content">
                             <div class="row">

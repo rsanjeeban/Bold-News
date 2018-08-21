@@ -7,7 +7,12 @@
     <link rel="stylesheet" href="/css/main.css" type="text/css">
     <link rel="stylesheet" href="/css/all.css" type="text/css">
     <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
-
+    <style>
+    a,a:hover{
+        text-decoration:none;
+        color:black;
+    }
+    </style>
 </head>
 <body>
     <div class="container-fluid bg-white p-3">
@@ -184,47 +189,22 @@
                         <b><h3>BBC NEWS</h3><hr></b>
                     </div>
                     <div class="section-content">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="article">
-                                        <div class="cor-author-name">BBC</div>
-                                        <div class="article-date">August 21 2018</div>
-                                        <div class="menu-icon"><img src="/images/menu-options.png"></div>
-                                        <div class="article-img"><img src="/images/01.jpg"></div>
-                                        <div class="article-body"><h4>Brett Kavanaugh picked for Supreme Court by President Trump</h4>
+                        <div class="row">
+                            @for ($i = 0; $i < 8; $i++)
+                                    <a href="{{$data1[$i]->url}}" target="_blank">
+                                        <div class="col-md-3 col-sm-6">
+                                            <div class="article">   
+                                                <div class="cor-author-name">{{$data1[$i]->source->name}}</div>
+                                                <div class="article-date">{!!substr($data1[$i]->publishedAt,0,10)!!}  </div>
+                                                <div class="menu-icon"><img src="/images/menu-options.png"></div>
+                                                <div class="menu-icon"><img src="/images/like.png"></div>
+                                                <div class="article-img"><img src="{{$data1[$i]->urlToImage}}"></div>
+                                                <div class="article-body"><h4>{{$data1[$i]->title}}</h4>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="article">
-                                        <div class="cor-author-name">CNN</div>
-                                        <div class="article-date">August 21 2018</div>
-                                        <div class="menu-icon"><img src="/images/menu-options.png"></div>
-                                        <div class="article-img"><img src="/images/02.jpg"></div>
-                                        <div class="article-body"><h4>Brett Kavanaugh picked for Supreme Court by President Trump</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="article">
-                                        <div class="cor-author-name">Google News</div>
-                                        <div class="article-date">August 21 2018</div>
-                                        <div class="menu-icon"><img src="/images/menu-options.png"></div>
-                                        <div class="article-img"><img src="/images/03.jpg"></div>
-                                        <div class="article-body"><h4>Brett Kavanaugh picked for Supreme Court by President Trump</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="article">
-                                        <div class="cor-author-name">BBC</div>
-                                        <div class="article-date">August 21 2018</div>
-                                        <div class="menu-icon"><img src="/images/menu-options.png"></div>
-                                        <div class="article-img"><img src="/images/04.jpg"></div>
-                                        <div class="article-body"><h4>Brett Kavanaugh picked for Supreme Court by President Trump</h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                    </a>
+                                @endfor
                             </div>
                             <!--  Ajax Loading BBC Newses -->
                             <div class="more-news" id="more-newses-row2"></div>
@@ -245,46 +225,19 @@
                     </div>
                     <div class="section-content">
                             <div class="row" id="row">
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="article">
-                                        <div class="cor-author-name">BBC</div>
-                                        <div class="article-date">August 21 2018</div>
-                                        <div class="menu-icon"><img src="/images/menu-options.png"></div>
-                                        <div class="article-img"><img src="/images/01.jpg"></div>
-                                        <div class="article-body"><h4>Brett Kavanaugh picked for Supreme Court by President Trump</h4>
+                            @for ($i = 0; $i < 8; $i++)
+                                    <div class="col-md-3 col-sm-6">
+                                        <div class="article">   
+                                            <div class="cor-author-name">{{$data2[$i]->source->name}}</div>
+                                            <div class="article-date">{!!substr($data2[$i]->publishedAt,0,10)!!}  </div>
+                                            <div class="menu-icon"><img src="/images/menu-options.png"></div>
+                                            <div class="article-img"><img src="{{$data2[$i]->urlToImage}}"></div>
+                                            <div class="article-body"><h4>{{$data2[$i]->title}}</h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="article">
-                                        <div class="cor-author-name">CNN</div>
-                                        <div class="article-date">August 21 2018</div>
-                                        <div class="menu-icon"><img src="/images/menu-options.png"></div>
-                                        <div class="article-img"><img src="/images/02.jpg"></div>
-                                        <div class="article-body"><h4>Brett Kavanaugh picked for Supreme Court by President Trump</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="article">
-                                        <div class="cor-author-name">Google News</div>
-                                        <div class="article-date">August 21 2018</div>
-                                        <div class="menu-icon"><img src="/images/menu-options.png"></div>
-                                        <div class="article-img"><img src="/images/03.jpg"></div>
-                                        <div class="article-body"><h4>Brett Kavanaugh picked for Supreme Court by President Trump</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="article">
-                                        <div class="cor-author-name">BBC</div>
-                                        <div class="article-date">August 21 2018</div>
-                                        <div class="menu-icon"><img src="/images/menu-options.png"></div>
-                                        <div class="article-img"><img src="/images/04.jpg"></div>
-                                        <div class="article-body"><h4>Brett Kavanaugh picked for Supreme Court by President Trump</h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endfor
+                            </div>
                             </div>
                     </div>
                 </div>
@@ -313,9 +266,7 @@
             // $('#getRequest').click(function(){
             $("#getRequest,#getRequest1").click(function(){
                 $.get('getRequest',function(data){
-                    $('#more-newses-row1').hide();                    
                     $('#more-newses-row1').append(data);
-                    $('#more-newses-row1').show(200);       
                 })  
             });
             // switch(){

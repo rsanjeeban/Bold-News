@@ -11,15 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index')->with("name","Sanjee");
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/','MainpageController@home');
 
 Route::get('/welcome', function () {
     return view('welcome');
 });
 
-Route::get('/news/{channelname}', 'GetData@selectChannel');
+Route::get('/news/{channelname}', 'GetData@OpenNewsPage');
 
 Route::get('/getRequest',function(){
   if(Request::ajax()){
@@ -41,3 +43,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
+ Route::get('/abc', 'NewsController@GetNews');
