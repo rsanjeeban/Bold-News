@@ -44,3 +44,13 @@ Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');
  Route::get('/abc', 'NewsController@GetNews');
+
+ //Below Route for Search Results
+ Route::get('/results', function(){
+    $data=$_GET["searchbar"];
+    return view('searchresults')->with('data',$data);
+ });
+ Route::post('/results', function(){
+    $data=$_POST["searchbar"];
+    return view('searchresults')->with('data',$data);
+});

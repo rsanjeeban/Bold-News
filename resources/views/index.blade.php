@@ -25,7 +25,8 @@
             <div class="searchform">
                 <div class="search-bar">
                     <h1>Hello! and Welcome to our site</h1>
-                    <form action="" method="" style="background-color:white;border-radius: 3px;" autocomplete="off">
+                    <form action="results" method="GET" style="background-color:white;border-radius: 3px;" autocomplete="off">
+                    <!-- {{ csrf_field() }} -->
                         <input type="text" name="searchbar" placeholder="Search News" class="p-4" id="search-button" onkeyup="search_live()" onblur="leave_search_live()">
                         <button  class="fa fa-search nostyle subBut"><input type="submit" class="nostyle" value=""></button>
                     </form>
@@ -33,7 +34,7 @@
                     <div class="livesearch">
                         <ul style="display:contents" id="live-results" hidden>
                             <div id="live-results-div">
-
+                            
                             </div>
                         </ul>
                     </div>
@@ -231,6 +232,7 @@
                                             <div class="cor-author-name">{{$data2[$i]->source->name}}</div>
                                             <div class="article-date">{!!substr($data2[$i]->publishedAt,0,10)!!}  </div>
                                             <div class="menu-icon"><img src="/images/menu-options.png"></div>
+                                            <div class="menu-icon"><img src="/images/like.png"></div>
                                             <div class="article-img"><img src="{{$data2[$i]->urlToImage}}"></div>
                                             <div class="article-body"><h4>{{$data2[$i]->title}}</h4>
                                             </div>
