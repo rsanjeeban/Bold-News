@@ -315,3 +315,12 @@ h4{
 
 /*Login Page End*/
 
+/*Dashboard Page Styles Begin*/
+.notication{
+	padding-right: 5px;
+}
+.dashboard-logo{
+	width:160px;
+	height: auto;
+}
+/*Dashboard Page Styles End*/

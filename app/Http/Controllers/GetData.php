@@ -10,6 +10,7 @@ use GuzzleHttp\Client;
 // use GuzzleHttp\Message\Request as GuzRequest;
 // use GuzzleHttp\Message\Response;
 use App\newssource;
+use App\news;
 
 class GetData extends Controller
 {
@@ -28,11 +29,18 @@ class GetData extends Controller
 		return $dat;
 	}
 	public function OpenNewsPage($Name){
-		$dat=$this->selectChannel($Name);
+		// $dat=$this->selectChannel($Name);
 		// var_dump($dat);
-		return view('news',compact(['dat']));
+		$sourceid=newssource::select()->where('name',$Name)->get()->pluck('sources');
+		// echo $sourceid;
+		$dat=news::select()->where('sourceid',$sourceid)->get()->toArray();
+		$NewsChannelList=$this->LoadNewsChannel();		
+		return view('news')->with(array('dat'=>$dat,'data3'=>$NewsChannelList));
 	}
-
+	public function LoadNewsChannel(){
+        $cat=newssource::all()->pluck('name')->toarray();
+        return $cat;
+    }
 	public function GetDataFromChannel($Api){
 
 		$client=new Client();
@@ -51,7 +59,7 @@ class GetData extends Controller
 			// 	}
 			// }
 			// $dat=$data->articles[0]->title;
-			return "Hi Welcome to Live Search";
+			return "[Live Search : Feature Development]";
 		 }
 	}
 }
